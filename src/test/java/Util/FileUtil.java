@@ -1,5 +1,7 @@
 package Util;
 
+import org.junit.Assert;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
@@ -17,10 +19,17 @@ public class FileUtil {
 
             //returns true if there is another line to read
             while (sc.hasNextLine()) {
-                sql.append(sc.nextLine() + " ");
+                String line = sc.nextLine();
+                if(!line.contains("--")) {
+                    sql.append(line + " ");
+                }
             }
             sc.close();     //closes the scanner
+            if(sql.length()<3){
+                Assert.fail("No SQL written in "+fileName);
+            }
         } catch (IOException e) {
+            Assert.fail(e.getMessage());
         }
 
         return sql.toString();

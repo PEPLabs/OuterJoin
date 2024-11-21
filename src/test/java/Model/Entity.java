@@ -1,20 +1,21 @@
+package Model;
 
 import java.util.Objects;
 
-public class ExampleEntity {
+public class Entity {
     private String topic;
     private String teacher;
     private String student;
     private String textbook;
 
-    public ExampleEntity(String topic, String teacher, String student, String textbook) {
+    public Entity(String topic, String teacher, String student, String textbook) {
         this.topic = topic;
         this.teacher = teacher;
         this.student = student;
         this.textbook = textbook;
     }
 
-    public ExampleEntity() {
+    public Entity() {
     }
 
     public String getTopic() {
@@ -53,7 +54,7 @@ public class ExampleEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ExampleEntity that = (ExampleEntity) o;
+        Entity that = (Entity) o;
         return Objects.equals(topic, that.topic) && Objects.equals(teacher, that.teacher) && Objects.equals(student, that.student) && Objects.equals(textbook, that.textbook);
     }
 
